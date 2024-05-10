@@ -1,0 +1,97 @@
+➜  PaddleOCR git:(dygraph) ✗ python deploy/slim/quantization/export_model.py -c configs/cls/cls_mv3.yml -o Global.checkpoints=cls_qat/best_accuracy Global.save_model_dir=./cls_qat_inference_model
+[2021/01/13 21:11:21] root INFO: Architecture :
+[2021/01/13 21:11:21] root INFO:     Backbone :
+[2021/01/13 21:11:21] root INFO:         model_name : small
+[2021/01/13 21:11:21] root INFO:         name : MobileNetV3
+[2021/01/13 21:11:21] root INFO:         scale : 0.35
+[2021/01/13 21:11:21] root INFO:     Head :
+[2021/01/13 21:11:21] root INFO:         class_dim : 2
+[2021/01/13 21:11:21] root INFO:         name : ClsHead
+[2021/01/13 21:11:21] root INFO:     Neck : None
+[2021/01/13 21:11:21] root INFO:     Transform : None
+[2021/01/13 21:11:21] root INFO:     algorithm : CLS
+[2021/01/13 21:11:21] root INFO:     model_type : cls
+[2021/01/13 21:11:21] root INFO: Eval :
+[2021/01/13 21:11:21] root INFO:     dataset :
+[2021/01/13 21:11:21] root INFO:         data_dir : ./train_data/cls
+[2021/01/13 21:11:21] root INFO:         label_file_list : ['./train_data/cls/test.txt']
+[2021/01/13 21:11:21] root INFO:         name : SimpleDataSet
+[2021/01/13 21:11:21] root INFO:         transforms :
+[2021/01/13 21:11:21] root INFO:             DecodeImage :
+[2021/01/13 21:11:21] root INFO:                 channel_first : False
+[2021/01/13 21:11:21] root INFO:                 img_mode : BGR
+[2021/01/13 21:11:21] root INFO:             ClsLabelEncode : None
+[2021/01/13 21:11:21] root INFO:             ClsResizeImg :
+[2021/01/13 21:11:21] root INFO:                 image_shape : [3, 48, 192]
+[2021/01/13 21:11:21] root INFO:             KeepKeys :
+[2021/01/13 21:11:21] root INFO:                 keep_keys : ['image', 'label']
+[2021/01/13 21:11:21] root INFO:     loader :
+[2021/01/13 21:11:21] root INFO:         batch_size_per_card : 512
+[2021/01/13 21:11:21] root INFO:         drop_last : False
+[2021/01/13 21:11:21] root INFO:         num_workers : 4
+[2021/01/13 21:11:21] root INFO:         shuffle : False
+[2021/01/13 21:11:21] root INFO: Global :
+[2021/01/13 21:11:21] root INFO:     cal_metric_during_train : True
+[2021/01/13 21:11:21] root INFO:     checkpoints : cls_qat/best_accuracy
+[2021/01/13 21:11:21] root INFO:     debug : False
+[2021/01/13 21:11:21] root INFO:     distributed : False
+[2021/01/13 21:11:21] root INFO:     epoch_num : 100
+[2021/01/13 21:11:21] root INFO:     eval_batch_step : [0, 1000]
+[2021/01/13 21:11:21] root INFO:     infer_img : doc/imgs_words_en/word_10.png
+[2021/01/13 21:11:21] root INFO:     label_list : ['0', '180']
+[2021/01/13 21:11:21] root INFO:     log_smooth_window : 20
+[2021/01/13 21:11:21] root INFO:     pretrained_model : None
+[2021/01/13 21:11:21] root INFO:     print_batch_step : 10
+[2021/01/13 21:11:21] root INFO:     save_epoch_step : 3
+[2021/01/13 21:11:21] root INFO:     save_inference_dir : None
+[2021/01/13 21:11:21] root INFO:     save_model_dir : ./cls_qat_inference_model
+[2021/01/13 21:11:21] root INFO:     use_gpu : True
+[2021/01/13 21:11:21] root INFO:     use_visualdl : False
+[2021/01/13 21:11:21] root INFO: Loss :
+[2021/01/13 21:11:21] root INFO:     name : ClsLoss
+[2021/01/13 21:11:21] root INFO: Metric :
+[2021/01/13 21:11:21] root INFO:     main_indicator : acc
+[2021/01/13 21:11:21] root INFO:     name : ClsMetric
+[2021/01/13 21:11:21] root INFO: Optimizer :
+[2021/01/13 21:11:21] root INFO:     beta1 : 0.9
+[2021/01/13 21:11:21] root INFO:     beta2 : 0.999
+[2021/01/13 21:11:21] root INFO:     lr :
+[2021/01/13 21:11:21] root INFO:         learning_rate : 0.001
+[2021/01/13 21:11:21] root INFO:         name : Cosine
+[2021/01/13 21:11:21] root INFO:     name : Adam
+[2021/01/13 21:11:21] root INFO:     regularizer :
+[2021/01/13 21:11:21] root INFO:         factor : 0
+[2021/01/13 21:11:21] root INFO:         name : L2
+[2021/01/13 21:11:21] root INFO: PostProcess :
+[2021/01/13 21:11:21] root INFO:     name : ClsPostProcess
+[2021/01/13 21:11:21] root INFO: Train :
+[2021/01/13 21:11:21] root INFO:     dataset :
+[2021/01/13 21:11:21] root INFO:         data_dir : ./train_data/cls
+[2021/01/13 21:11:21] root INFO:         label_file_list : ['./train_data/cls/train.txt']
+[2021/01/13 21:11:21] root INFO:         name : SimpleDataSet
+[2021/01/13 21:11:21] root INFO:         transforms :
+[2021/01/13 21:11:21] root INFO:             DecodeImage :
+[2021/01/13 21:11:21] root INFO:                 channel_first : False
+[2021/01/13 21:11:21] root INFO:                 img_mode : BGR
+[2021/01/13 21:11:21] root INFO:             ClsLabelEncode : None
+[2021/01/13 21:11:21] root INFO:             RecAug :
+[2021/01/13 21:11:21] root INFO:                 use_tia : False
+[2021/01/13 21:11:21] root INFO:             RandAugment : None
+[2021/01/13 21:11:21] root INFO:             ClsResizeImg :
+[2021/01/13 21:11:21] root INFO:                 image_shape : [3, 48, 192]
+[2021/01/13 21:11:21] root INFO:             KeepKeys :
+[2021/01/13 21:11:21] root INFO:                 keep_keys : ['image', 'label']
+[2021/01/13 21:11:21] root INFO:     loader :
+[2021/01/13 21:11:21] root INFO:         batch_size_per_card : 512
+[2021/01/13 21:11:21] root INFO:         drop_last : True
+[2021/01/13 21:11:21] root INFO:         num_workers : 8
+[2021/01/13 21:11:21] root INFO:         shuffle : True
+[2021/01/13 21:11:21] root INFO: train with paddle 0.0.0 and device CUDAPlace(0)
+W0113 21:11:21.374989 83577 device_context.cc:320] Please NOTE: device: 0, GPU Compute Capability: 7.0, Driver API Version: 11.0, Runtime API Version: 10.0
+W0113 21:11:21.399595 83577 device_context.cc:330] device: 0, cuDNN Version: 7.6.
+[2021/01/13 21:11:32] root INFO: resume from cls_qat/best_accuracy
+[2021/01/13 21:11:32] root INFO: Initialize indexs of datasets:['./train_data/cls/test.txt']
+eval model:: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 803/803 [04:26<00:00,  3.02it/s]
+[2021/01/13 21:16:00] root INFO: metric eval ***************
+[2021/01/13 21:16:00] root INFO: acc:0.9449500187460135
+[2021/01/13 21:16:00] root INFO: fps:1979.0335715470349

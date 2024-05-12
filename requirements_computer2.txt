@@ -1,0 +1,5 @@
+flask
+paddlepaddle
+paddleocr
+openai
+zhipuai

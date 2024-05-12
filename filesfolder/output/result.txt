@@ -2,6 +2,7 @@
 def trap(heights):
     if not heights:
         return 0
+
     n = len(heights)
     left_max = [0] * n
     right_max = [0] * n
